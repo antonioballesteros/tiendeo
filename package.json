@@ -1,5 +1,8 @@
 {
   "name": "tiendeo",
+  "displayName": "tiendeo",
+  "description": "Prueba Técnica Frontend",
+  "author": "Antonio",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
