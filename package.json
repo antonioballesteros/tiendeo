@@ -12,6 +12,7 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "node-sass": "^5.0.0",
     "prettier": "^2.2.1"
   },
   "scripts": {
