@@ -34,8 +34,9 @@
 @media (min-width: 600px) {
   .cards {
     ul {
+      justify-content: space-around;
       li {
-        width: 49.9%;
+        width: 48%;
       }
     }
   }

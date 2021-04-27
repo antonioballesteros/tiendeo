@@ -1,8 +1,9 @@
 .card {
   display: flex;
   flex-direction: column;
-  box-shadow: 1px 0px 4px 1px wheat;
-  margin: 0 10px 10px 0;
+  box-shadow: 1px 0px 4px 1px cadetblue;
+  margin: 0 0 10px 0;
+  background-color: whitesmoke;
 
   .head {
     background-repeat: no-repeat;
@@ -27,7 +28,7 @@
   }
 
   &:hover {
-    box-shadow: 1px 0px 4px 3px wheat;
+    box-shadow: 1px 0px 4px 3px cadetblue;
   }
 }
 
