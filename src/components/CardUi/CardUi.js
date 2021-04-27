@@ -22,6 +22,7 @@ const CardUi = ({ id, title, description, imageUrl, onEdit }) => {
         style={{
           backgroundImage: `url(${img})`,
         }}
+        data-testid="background"
       >
         <h3 data-testid="title">{title}</h3>
         {id && onEdit && (

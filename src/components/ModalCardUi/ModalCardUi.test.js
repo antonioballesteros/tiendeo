@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import ModalCardUi from './ModalCardUi'
 
 const returnEmptyCard = () => {
@@ -19,11 +19,19 @@ const returnNotEmptyCard = () => {
   }
 }
 
-test('ModalCardUi loads', () => {
+test('ModalCardUi creates card', () => {
   const onCancel = jest.fn(() => {})
 
   render(<ModalCardUi onCancel={onCancel} card={returnEmptyCard()} />)
   const element = screen.getByText(/New Card/i)
+  expect(element).toBeInTheDocument()
+})
+
+test('ModalCardUi edits card', () => {
+  const onCancel = jest.fn(() => {})
+
+  render(<ModalCardUi onCancel={onCancel} card={returnNotEmptyCard()} />)
+  const element = screen.getByText(/Update Card/i)
   expect(element).toBeInTheDocument()
 })
 
@@ -87,4 +95,36 @@ test('ModalCardUi Valid Form', () => {
 
   fireEvent.click(screen.getByText(/Create/i))
   expect(onSubmit).toHaveBeenCalledTimes(1)
+})
+
+test('ModalCardUi Check buttons for new cards', () => {
+  const onCancel = jest.fn(() => {})
+  render(<ModalCardUi onCancel={onCancel} card={returnEmptyCard()} />)
+
+  const buttons = screen.getByTestId('options')
+
+  const create = within(buttons).queryByText(/Create/i)
+  expect(create).toBeInTheDocument()
+
+  const deleteElement = within(buttons).queryByText(/Delete/i)
+  expect(deleteElement).not.toBeInTheDocument()
+
+  const update = within(buttons).queryByText(/Update/i)
+  expect(update).not.toBeInTheDocument()
+})
+
+test('ModalCardUi Check buttons for valid cards', () => {
+  const onCancel = jest.fn(() => {})
+  render(<ModalCardUi onCancel={onCancel} card={returnNotEmptyCard()} />)
+
+  const buttons = screen.getByTestId('options')
+
+  const create = within(buttons).queryByText(/Create/i)
+  expect(create).not.toBeInTheDocument()
+
+  const deleteElement = within(buttons).queryByText(/Delete/i)
+  expect(deleteElement).toBeInTheDocument()
+
+  const update = within(buttons).queryByText(/Update/i)
+  expect(update).toBeInTheDocument()
 })

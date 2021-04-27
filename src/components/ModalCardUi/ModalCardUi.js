@@ -86,7 +86,7 @@ const ModalCardUi = ({
 
         <h3>Preview Card</h3>
         <CardUi title={title} description={description} imageUrl={imageUrl} />
-        <div className="options">
+        <div className="options" data-testid="options">
           <Button
             className="mr-auto"
             type="reset"
