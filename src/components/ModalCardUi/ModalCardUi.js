@@ -4,7 +4,14 @@ import PropTypes from 'prop-types'
 import { CardUi, ErrorCard, Button, Input } from '../'
 import './ModalCardUi.scss'
 
-const ModalCard = ({ onCancel, onSubmit, onDelete, card, updating, error }) => {
+const ModalCardUi = ({
+  onCancel,
+  onSubmit,
+  onDelete,
+  card,
+  updating,
+  error,
+}) => {
   const [title, setTitle] = useState(card.title)
   const [description, setDescrition] = useState(card.description)
   const [image, setImage] = useState(null)
@@ -105,8 +112,8 @@ const ModalCard = ({ onCancel, onSubmit, onDelete, card, updating, error }) => {
     </div>
   )
 }
-ModalCard.propTypes = {
+ModalCardUi.propTypes = {
   onCancel: PropTypes.func.isRequired,
 }
 
-export default ModalCard
+export default ModalCardUi

@@ -13,7 +13,7 @@ const Cards = () => {
       auth: { token },
     },
     cardsState: {
-      cards: { data, loading, error },
+      cards: { data, loading, error, manage },
     },
   } = useContext(MyContext)
 
@@ -24,7 +24,7 @@ const Cards = () => {
   })
 
   return token ? (
-    <CardsUi cards={data} loading={loading} error={error} />
+    <CardsUi cards={data} loading={loading} error={error} manage={manage} />
   ) : (
     <Login />
   )

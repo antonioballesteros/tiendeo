@@ -2,6 +2,8 @@ import {
   CARDS_LOADING,
   CARDS_LOAD_SUCCESS,
   CARDS_LOAD_ERROR,
+  CARD_START_MANAGE,
+  CARD_END_MANAGE,
   ADD_CARD_UPDATING,
   ADD_CARD_SUCCESS,
   ADD_CARD_ERROR,
@@ -19,6 +21,7 @@ export const cardsInitialState = {
     error: false,
     data: null,
     updating: false,
+    manage: false,
   },
 }
 
@@ -58,6 +61,28 @@ const cards = (state, { payload, type }) => {
       }
     }
 
+    // --- Manage card
+    case CARD_START_MANAGE: {
+      return {
+        ...state,
+        cards: {
+          ...state.cards,
+          updating: false,
+          manage: true,
+        },
+      }
+    }
+
+    case CARD_END_MANAGE: {
+      return {
+        ...state,
+        cards: {
+          ...state.cards,
+          manage: false,
+        },
+      }
+    }
+
     // --- add card
 
     case ADD_CARD_UPDATING: {
@@ -88,6 +113,7 @@ const cards = (state, { payload, type }) => {
         cards: {
           ...state.cards,
           loading: false,
+          manage: false,
           data: [payload, ...state.cards.data],
         },
       }
@@ -123,6 +149,7 @@ const cards = (state, { payload, type }) => {
         cards: {
           ...state.cards,
           loading: false,
+          manage: false,
           data: state.cards.data.map((card) =>
             card.id === payload.id ? payload : card
           ),
@@ -162,6 +189,7 @@ const cards = (state, { payload, type }) => {
         cards: {
           ...state.cards,
           loading: false,
+          manage: false,
           data: state.cards.data.filter((card) => card.id !== payload.id),
         },
       }

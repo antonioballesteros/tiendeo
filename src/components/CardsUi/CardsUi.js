@@ -1,32 +1,37 @@
-import { useState } from 'react'
+import { useState, useContext } from 'react'
 import classNames from 'classnames'
 import { ErrorCard, Loading, CardUi, Button } from '..'
 import { ModalCard } from '../../container'
+
+import { MyContext } from '../../context/Provider'
+import cardStartManage from '../../context/actions/cardStartManage'
+import cardEndManage from '../../context/actions/cardEndManage'
+
 import './CardsUi.scss'
 
-const CardsUi = ({ loading, cards, error }) => {
-  const [showModal, setShowModal] = useState(false)
-
+const CardsUi = ({ loading, cards, error, manage }) => {
   //Sort keys
   const [sortTitle, setSortTitle] = useState(false)
   const [sortAsc, setSortAsc] = useState(false)
 
   const [id, setId] = useState(false)
 
+  const { cardsDispatch } = useContext(MyContext)
+
   if (error) return <ErrorCard msg={error} />
   if (loading || !cards) return <Loading />
 
   const onAddClick = () => {
-    setShowModal(true)
+    cardStartManage(cardsDispatch)
     setId(false)
   }
   const onModalCancel = () => {
-    setShowModal(false)
+    cardEndManage(cardsDispatch)
     setId(false)
   }
 
   const onEdit = (id) => {
-    setShowModal(true)
+    cardStartManage(cardsDispatch)
     setId(id)
   }
 
@@ -74,9 +79,9 @@ const CardsUi = ({ loading, cards, error }) => {
           </span>
         </div>
 
-        {!showModal && <Button onClick={onAddClick}>Add</Button>}
+        {!manage && <Button onClick={onAddClick}>Add</Button>}
       </div>
-      {showModal && <ModalCard onCancel={onModalCancel} id={id} />}
+      {manage && <ModalCard onCancel={onModalCancel} id={id} />}
       <ul>
         {cards.sort(sorting).map((card) => {
           return (

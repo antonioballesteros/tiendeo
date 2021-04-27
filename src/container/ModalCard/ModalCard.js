@@ -25,12 +25,10 @@ const ModalCard = ({ id, onCancel }) => {
     } else {
       addCard(token, data, cardsDispatch)
     }
-    onCancel()
   }
 
   const onDelete = (data) => {
     deleteCard(token, data, cardsDispatch)
-    onCancel()
   }
 
   const card = id
