@@ -33,7 +33,6 @@ const auth = (state, { payload, type }) => {
         auth: {
           ...state.auth,
           loading: false,
-          error: false,
           token: payload,
         },
       }

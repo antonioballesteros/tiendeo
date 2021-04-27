@@ -18,18 +18,7 @@ export const cardsInitialState = {
     loading: false,
     error: false,
     data: null,
-  },
-  addCard: {
     updating: false,
-    error: false,
-  },
-  updateCard: {
-    updating: false,
-    error: false,
-  },
-  deleteCard: {
-    updating: false,
-    error: false,
   },
 }
 
@@ -74,9 +63,9 @@ const cards = (state, { payload, type }) => {
     case ADD_CARD_UPDATING: {
       return {
         ...state,
-        addCard: {
-          ...state.addCard,
-          updating: true,
+        cards: {
+          ...state.cards,
+          loading: true,
           error: false,
         },
       }
@@ -85,10 +74,10 @@ const cards = (state, { payload, type }) => {
     case ADD_CARD_ERROR: {
       return {
         ...state,
-        addCard: {
-          ...state.addCard,
-          updating: false,
-          error: true,
+        cards: {
+          ...state.cards,
+          loading: false,
+          error: payload,
         },
       }
     }
@@ -96,12 +85,6 @@ const cards = (state, { payload, type }) => {
     case ADD_CARD_SUCCESS: {
       return {
         ...state,
-        addCard: {
-          ...state.addCard,
-          data: payload,
-          updating: false,
-        },
-
         cards: {
           ...state.cards,
           loading: false,
@@ -115,8 +98,8 @@ const cards = (state, { payload, type }) => {
     case UPDATE_CARD_UPDATING: {
       return {
         ...state,
-        updateCard: {
-          ...state.updateCard,
+        cards: {
+          ...state.cards,
           updating: true,
           error: false,
         },
@@ -126,8 +109,8 @@ const cards = (state, { payload, type }) => {
     case UPDATE_CARD_ERROR: {
       return {
         ...state,
-        updateCard: {
-          ...state.updateCard,
+        cards: {
+          ...state.cards,
           updating: false,
           error: true,
         },
@@ -137,12 +120,6 @@ const cards = (state, { payload, type }) => {
     case UPDATE_CARD_SUCCESS: {
       return {
         ...state,
-        updateCard: {
-          ...state.updateCard,
-          data: payload,
-          updating: false,
-        },
-
         cards: {
           ...state.cards,
           loading: false,
@@ -160,8 +137,8 @@ const cards = (state, { payload, type }) => {
     case DELETE_CARD_UPDATING: {
       return {
         ...state,
-        deleteCard: {
-          ...state.deleteCard,
+        cards: {
+          ...state.cards,
           updating: true,
           error: false,
         },
@@ -171,8 +148,8 @@ const cards = (state, { payload, type }) => {
     case DELETE_CARD_ERROR: {
       return {
         ...state,
-        deleteCard: {
-          ...state.deleteCard,
+        cards: {
+          ...state.cards,
           updating: false,
           error: true,
         },
@@ -182,12 +159,6 @@ const cards = (state, { payload, type }) => {
     case DELETE_CARD_SUCCESS: {
       return {
         ...state,
-        deleteCard: {
-          ...state.updateCard,
-          data: payload,
-          updating: false,
-        },
-
         cards: {
           ...state.cards,
           loading: false,

@@ -15,10 +15,7 @@ const ModalCard = ({ id, onCancel }) => {
       auth: { token },
     },
     cardsState: {
-      cards: { data: cardsData },
-      addCard: { updating: addCardUpdating, error: addCardError },
-      updateCard: { updating: updateCardUpdating, error: updateCardError },
-      deleteCard: { updating: deleteCardUpdating, error: deleteCardError },
+      cards: { data: cards, updating, error },
     },
   } = useContext(MyContext)
 
@@ -36,11 +33,8 @@ const ModalCard = ({ id, onCancel }) => {
     onCancel()
   }
 
-  const updating = addCardUpdating || updateCardUpdating || deleteCardUpdating
-  const error = addCardError || updateCardError || deleteCardError
-
   const card = id
-    ? cardsData.find((card) => card.id === id)
+    ? cards.find((card) => card.id === id)
     : {
         id: null,
         title: '',
