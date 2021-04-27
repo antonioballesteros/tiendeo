@@ -1,0 +1,48 @@
+.modal-card {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  background: aliceblue;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 1px 0px 4px 1px wheat;
+
+  &:hover {
+    box-shadow: 1px 0px 4px 3px wheat;
+  }
+
+  h2,
+  h3 {
+    margin: 0;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .options {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .modal-card {
+    top: 50px;
+    height: 500px;
+    bottom: unset;
+    width: 400px;
+    left: calc(50% - 200px);
+    right: unset;
+
+    form {
+      width: unset;
+    }
+  }
+}

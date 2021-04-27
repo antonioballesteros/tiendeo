@@ -1,0 +1,15 @@
+.errorCard {
+  position: absolute;
+  top: 0px;
+  left: 1px;
+  right: 1px;
+  background-color: gray;
+  padding: 5px 10px;
+  display: flex;
+  align-items: center;
+
+  h3,
+  h4 {
+    margin: 10px;
+  }
+}

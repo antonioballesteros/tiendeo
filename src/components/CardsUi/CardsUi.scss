@@ -1,0 +1,42 @@
+.cards {
+  .header {
+    display: flex;
+    align-items: center;
+    height: 26px;
+
+    h4 {
+      margin: 0;
+    }
+    .sorting-box {
+      margin: 0 auto;
+
+      span.bold.under {
+        text-decoration: underline;
+      }
+      span.bold.top {
+        text-decoration: overline;
+      }
+    }
+  }
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 10px 0;
+    padding: 0;
+
+    li {
+      width: 100%;
+    }
+  }
+}
+
+@media (min-width: 600px) {
+  .cards {
+    ul {
+      li {
+        width: 49.9%;
+      }
+    }
+  }
+}

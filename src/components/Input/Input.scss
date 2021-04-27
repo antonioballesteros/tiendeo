@@ -1,0 +1,12 @@
+.input {
+  font-size: 14px;
+
+  margin: 10px 0;
+  border: 0;
+  border-bottom: 2px solid burlywood;
+  background-color: whitesmoke;
+
+  &:focus {
+    font-weight: bold;
+  }
+}
