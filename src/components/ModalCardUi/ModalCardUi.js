@@ -76,7 +76,7 @@ const ModalCardUi = ({
           disabled={updating}
         />
         {!card.id && (
-          <input
+          <Input
             name="image"
             type="file"
             onChange={onChangeImage}

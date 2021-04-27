@@ -9,6 +9,7 @@ const Input = ({
   placeholder,
   onChange,
   disabled,
+  type,
 }) => {
   return (
     <input
@@ -19,6 +20,8 @@ const Input = ({
       placeholder={placeholder}
       onChange={onChange}
       disabled={disabled}
+      type={type}
+      autoComplete="off"
     />
   )
 }
