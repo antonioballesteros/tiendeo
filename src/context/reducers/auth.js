@@ -13,7 +13,7 @@ export const authInitialState = {
 }
 
 const auth = (state, { payload, type }) => {
-  console.log('Auth Reducer', { type, payload })
+  // console.log('Auth Reducer', { type, payload })
 
   switch (type) {
     case TOKEN_LOADING:

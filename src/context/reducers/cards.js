@@ -19,14 +19,14 @@ export const cardsInitialState = {
   cards: {
     loading: false,
     error: false,
-    data: null,
+    data: [],
     updating: false,
     manage: false,
   },
 }
 
 const cards = (state, { payload, type }) => {
-  console.log('Cards Reducer', { type, payload })
+  // console.log('Cards Reducer', { type, payload })
   switch (type) {
     case CARDS_LOADING: {
       return {
@@ -138,7 +138,7 @@ const cards = (state, { payload, type }) => {
         cards: {
           ...state.cards,
           updating: false,
-          error: true,
+          error: payload,
         },
       }
     }
@@ -178,7 +178,7 @@ const cards = (state, { payload, type }) => {
         cards: {
           ...state.cards,
           updating: false,
-          error: true,
+          error: payload,
         },
       }
     }
