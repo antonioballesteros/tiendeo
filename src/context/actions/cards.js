@@ -11,8 +11,9 @@ const Cards = (token, dispatch) => {
     type: CARDS_LOADING,
   })
 
+  const baseUrl = process.env.REACT_APP_API ? process.env.REACT_APP_API : ''
   axios
-    .get(`${process.env.REACT_APP_API}/cards`, {
+    .get(`${baseUrl}/cards`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         Authorization: `Bearer ${token}`,

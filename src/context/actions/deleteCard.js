@@ -11,8 +11,9 @@ const DeleteCard = (token, data, dispatch) => {
     type: DELETE_CARD_UPDATING,
   })
 
+  const baseUrl = process.env.REACT_APP_API ? process.env.REACT_APP_API : ''
   axios
-    .delete(`${process.env.REACT_APP_API}/cards/${data.id}`, {
+    .delete(`${baseUrl}/cards/${data.id}`, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',

@@ -18,8 +18,9 @@ const AddCard = (token, data, dispatch) => {
     formData.append('image', data.image)
   }
 
+  const baseUrl = process.env.REACT_APP_API ? process.env.REACT_APP_API : ''
   axios
-    .post(`${process.env.REACT_APP_API}/cards`, formData, {
+    .post(`${baseUrl}/cards`, formData, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'multipart/form-data',

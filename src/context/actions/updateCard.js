@@ -16,8 +16,9 @@ const UpdateCard = (token, data, dispatch) => {
     description: data.description,
   }
 
+  const baseUrl = process.env.REACT_APP_API ? process.env.REACT_APP_API : ''
   axios
-    .put(`${process.env.REACT_APP_API}/cards/${data.id}`, updateDateFiltered, {
+    .put(`${baseUrl}/cards/${data.id}`, updateDateFiltered, {
       headers: {
         'Access-Control-Allow-Origin': '*',
         'Content-Type': 'application/json',
@@ -33,7 +34,7 @@ const UpdateCard = (token, data, dispatch) => {
     .catch((err) => {
       dispatch({
         type: UPDATE_CARD_ERROR,
-        payload: err ? err.toString() : '??',
+        payload: 'PUT:/cards:' + err ? err.toString() : '??',
       })
     })
 }

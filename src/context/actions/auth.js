@@ -11,6 +11,8 @@ const auth = (dispatch) => {
     type: TOKEN_LOADING,
   })
 
+  const baseUrl = process.env.REACT_APP_API ? process.env.REACT_APP_API : ''
+
   const previousToken = localStorage.getItem('token')
   if (previousToken) {
     dispatch({
@@ -19,7 +21,7 @@ const auth = (dispatch) => {
     })
   } else {
     axios
-      .get(`${process.env.REACT_APP_API}/users`, {
+      .get(`${baseUrl}/users`, {
         headers: {
           'Access-Control-Allow-Origin': '*',
         },
