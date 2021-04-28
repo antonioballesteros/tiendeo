@@ -2,7 +2,6 @@
   "name": "antonioapp",
   "displayName": "AntonioApp",
   "description": "Prueba Técnica Frontend - AntonioApp",
-  "homepage": "http://antonioballesteros.github.io/tiendeo",
   "author": "Antonio",
   "version": "0.1.0",
   "private": true,
