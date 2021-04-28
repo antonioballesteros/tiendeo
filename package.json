@@ -2,6 +2,7 @@
   "name": "antonioapp",
   "displayName": "AntonioApp",
   "description": "Prueba Técnica Frontend - AntonioApp",
+  "homepage": "http://antonioballesteros.github.io/tiendeo",
   "author": "Antonio",
   "version": "0.1.0",
   "private": true,
@@ -19,6 +20,7 @@
     "web-vitals": "^1.0.1"
   },
   "devDependencies": {
+    "gh-pages": "^3.1.0",
     "node-sass": "^5.0.0",
     "prettier": "^2.2.1"
   },
@@ -28,7 +30,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "prettier --check .",
-    "lint-fix": "prettier --write ."
+    "lint-fix": "prettier --write .",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
