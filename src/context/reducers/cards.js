@@ -19,7 +19,7 @@ export const cardsInitialState = {
   cards: {
     loading: false,
     error: false,
-    data: [],
+    data: null,
     updating: false,
     manage: false,
   },
@@ -114,7 +114,10 @@ const cards = (state, { payload, type }) => {
           ...state.cards,
           loading: false,
           manage: false,
-          data: [payload, ...state.cards.data],
+          data:
+            state.cards.data === null
+              ? [payload]
+              : [payload, ...state.cards.data],
         },
       }
     }
