@@ -6,7 +6,7 @@ import {
   DELETE_CARD_ERROR,
 } from '../constants/actionTypes'
 
-const DeleteCard = (token, data, dispatch) => {
+const DeleteCard = ({ token, data, dispatch }) => {
   dispatch({
     type: DELETE_CARD_UPDATING,
   })

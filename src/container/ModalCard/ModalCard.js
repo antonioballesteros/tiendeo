@@ -10,7 +10,7 @@ import { ModalCardUi } from '../../components'
 
 const ModalCard = ({ id, onCancel }) => {
   const {
-    cardsDispatch,
+    cardsDispatch: dispatch,
     authState: {
       auth: { token },
     },
@@ -21,14 +21,14 @@ const ModalCard = ({ id, onCancel }) => {
 
   const onSubmit = (data) => {
     if (data.id) {
-      updateCard(token, data, cardsDispatch)
+      updateCard({ token, data, dispatch })
     } else {
-      addCard(token, data, cardsDispatch)
+      addCard({ token, data, dispatch })
     }
   }
 
   const onDelete = (data) => {
-    deleteCard(token, data, cardsDispatch)
+    deleteCard({ token, data, dispatch })
   }
 
   const card = id

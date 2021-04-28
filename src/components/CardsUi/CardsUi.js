@@ -16,22 +16,22 @@ const CardsUi = ({ loading, cards, error, manage }) => {
 
   const [id, setId] = useState(false)
 
-  const { cardsDispatch } = useContext(MyContext)
+  const { cardsDispatch: dispatch } = useContext(MyContext)
 
   if (error) return <ErrorCard msg={error} />
   if (loading || !cards) return <Loading />
 
   const onAddClick = () => {
-    cardStartManage(cardsDispatch)
+    cardStartManage({ dispatch })
     setId(false)
   }
   const onModalCancel = () => {
-    cardEndManage(cardsDispatch)
+    cardEndManage({ dispatch })
     setId(false)
   }
 
   const onEdit = (id) => {
-    cardStartManage(cardsDispatch)
+    cardStartManage({ dispatch })
     setId(id)
   }
 

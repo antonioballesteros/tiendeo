@@ -8,7 +8,7 @@ import { CardsUi } from '../../components'
 
 const Cards = () => {
   const {
-    cardsDispatch,
+    cardsDispatch: dispatch,
     authState: {
       auth: { token },
     },
@@ -19,7 +19,7 @@ const Cards = () => {
 
   useEffect(() => {
     if (token && !loading && !error && !data) {
-      cards(token, cardsDispatch)
+      cards({ token, dispatch })
     }
   })
 

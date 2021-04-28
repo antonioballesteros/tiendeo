@@ -6,7 +6,7 @@ import {
   CARDS_LOAD_ERROR,
 } from '../constants/actionTypes'
 
-const Cards = (token, dispatch) => {
+const Cards = ({ token, dispatch }) => {
   dispatch({
     type: CARDS_LOADING,
   })

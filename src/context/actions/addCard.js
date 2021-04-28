@@ -6,7 +6,7 @@ import {
   ADD_CARD_ERROR,
 } from '../constants/actionTypes'
 
-const AddCard = (token, data, dispatch) => {
+const AddCard = ({ token, data, dispatch }) => {
   dispatch({
     type: ADD_CARD_UPDATING,
   })

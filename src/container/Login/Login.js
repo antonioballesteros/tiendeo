@@ -7,7 +7,7 @@ import { ErrorCard } from '../../components'
 
 const Login = () => {
   const {
-    authDispatch,
+    authDispatch: dispatch,
     authState: {
       auth: { loading, error, token },
     },
@@ -15,7 +15,7 @@ const Login = () => {
 
   useEffect(() => {
     if (!loading && !error && !token) {
-      auth(authDispatch)
+      auth({ dispatch })
     }
   })
 

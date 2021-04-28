@@ -6,7 +6,7 @@ import {
   TOKEN_ERROR,
 } from '../constants/actionTypes'
 
-const auth = (dispatch) => {
+const auth = ({ dispatch }) => {
   dispatch({
     type: TOKEN_LOADING,
   })
