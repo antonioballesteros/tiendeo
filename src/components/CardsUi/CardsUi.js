@@ -1,5 +1,6 @@
 import { useState, useContext } from 'react'
 import classNames from 'classnames'
+import PropTypes from 'prop-types'
 import { ErrorCard, Loading, CardUi, Button } from '..'
 import { ModalCard } from '../../container'
 
@@ -93,6 +94,13 @@ const CardsUi = ({ loading, cards, error, manage }) => {
       </ul>
     </div>
   )
+}
+
+CardsUi.propTypes = {
+  loading: PropTypes.bool,
+  cards: PropTypes.array,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
+  manage: PropTypes.bool,
 }
 
 export default CardsUi

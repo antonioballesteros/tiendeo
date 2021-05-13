@@ -1,4 +1,5 @@
 import { createContext, useReducer } from 'react'
+import PropTypes from 'prop-types'
 
 import auth, { authInitialState } from './reducers/auth'
 import cards, { cardsInitialState } from './reducers/cards'
@@ -22,6 +23,10 @@ const Provider = ({ children }) => {
       {children}
     </MyContext.Provider>
   )
+}
+
+Provider.propTypes = {
+  children: PropTypes.object.isRequired,
 }
 
 export default Provider

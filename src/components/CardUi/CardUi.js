@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types'
 import { Button } from '../'
 
 import './CardUi.scss'
@@ -35,4 +36,13 @@ const CardUi = ({ id, title, description, imageUrl, onEdit }) => {
     </div>
   )
 }
+
+CardUi.propTypes = {
+  id: PropTypes.number,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  imageUrl: PropTypes.string,
+  onEdit: PropTypes.func,
+}
+
 export default CardUi

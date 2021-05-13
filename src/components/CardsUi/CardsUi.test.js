@@ -46,7 +46,7 @@ const create5Cards = () => {
   ]
 }
 test('CardsUi not yet loaded', () => {
-  render(<CardsUi cards={false} loading={false} error={false} />)
+  render(<CardsUi cards={null} loading={false} error={false} />)
   const element = screen.getByText(/loading/i)
   expect(element).toBeInTheDocument()
 })

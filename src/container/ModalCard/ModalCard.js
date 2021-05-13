@@ -52,6 +52,7 @@ const ModalCard = ({ id, onCancel }) => {
   )
 }
 ModalCard.propTypes = {
+  id: PropTypes.number,
   onCancel: PropTypes.func.isRequired,
 }
 

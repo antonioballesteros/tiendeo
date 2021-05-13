@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import PropTypes from 'prop-types'
 import './ErrorCard.scss'
 
 const ErrorCard = ({ msg }) => {
@@ -12,6 +13,10 @@ const ErrorCard = ({ msg }) => {
       <h4>{msg}</h4>
     </div>
   ) : null
+}
+
+ErrorCard.propTypes = {
+  msg: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 }
 
 export default ErrorCard

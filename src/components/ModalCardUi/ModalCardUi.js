@@ -112,8 +112,14 @@ const ModalCardUi = ({
     </div>
   )
 }
+
 ModalCardUi.propTypes = {
   onCancel: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func,
+  onDelete: PropTypes.func,
+  card: PropTypes.object,
+  updating: PropTypes.bool,
+  error: PropTypes.oneOfType([PropTypes.string, PropTypes.bool]),
 }
 
 export default ModalCardUi
